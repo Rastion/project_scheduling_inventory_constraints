@@ -1,0 +1,40 @@
+{
+    "entry_point": "rcpsp_inv_problem:RCPSPInventoryProblem",
+    "default_params": {
+      "instance_file": "instances/ConsProd_bl2002.rcp"
+    },
+    "problem_type": "Project Scheduling with Inventory Constraints",
+    "description": "This problem extends the Resource Constrained Project Scheduling Problem (RCPSP) by incorporating inventory constraints. Each task has a duration, renewable resource requirements, and inventory consumption/production values. Precedence constraints ensure that a task finishes before its successors start. Renewable resource constraints limit the cumulative usage at any time, while inventory constraints ensure that the available inventory (initial level plus produced minus consumed) remains non-negative. The objective is to minimize the makespan.",
+    "keywords": [
+      "rcpsp",
+      "scheduling",
+      "inventory constraints",
+      "resource constraints",
+      "optimization"
+    ],
+    "data_format": {
+      "instance_file": {
+        "format": "First line: number of tasks, number of renewable resources, and number of inventory resources. Second line: renewable resource capacities followed by initial levels for inventory resources. Then, for each task: duration, renewable resource requirements, pairs of inventory consumption and production (for each inventory resource), number of successors, and list of successor task IDs (1-indexed)."
+      }
+    },
+    "decision_variables": {
+      "start_times": {
+        "type": "list of int",
+        "description": "A list of integers representing the start time for each task."
+      }
+    },
+    "objective": {
+      "type": "minimization",
+      "function": "Makespan = max_i(start_time[i] + duration[i])",
+      "description": "Minimize the overall makespan while satisfying precedence, renewable resource, and inventory constraints. Infeasible solutions incur heavy penalties."
+    },
+    "solution_representation": "A list of integers representing the start times of the tasks.",
+    "compatible_optimizers": [
+      "genetic_algorithm",
+      "simulated_annealing",
+      "particle_swarm",
+      "tabu_search",
+      "rl_optimizer"
+    ]
+  }
+  

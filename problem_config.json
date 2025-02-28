@@ -3,11 +3,14 @@
     "default_params": {
       "instance_file": "instances/ConsProd_bl2002.rcp"
     },
-    "problem_type": "Project Scheduling with Inventory Constraints",
+    "creator": "Rastion",
+    "type": "problem",
+    "problem_name": "Project scheduling with inventory constraints",
     "description": "This problem extends the Resource Constrained Project Scheduling Problem (RCPSP) by incorporating inventory constraints. Each task has a duration, renewable resource requirements, and inventory consumption/production values. Precedence constraints ensure that a task finishes before its successors start. Renewable resource constraints limit the cumulative usage at any time, while inventory constraints ensure that the available inventory (initial level plus produced minus consumed) remains non-negative. The objective is to minimize the makespan.",
+    "link_to_dataset": "https://github.com/Rastion/project_scheduling_inventory_constraints/blob/main/instances/ConsProd_bl2002.rcp",
     "keywords": [
       "rcpsp",
-      "scheduling",
+      "production-scheduling",
       "inventory constraints",
       "resource constraints",
       "optimization"
@@ -29,12 +32,8 @@
       "description": "Minimize the overall makespan while satisfying precedence, renewable resource, and inventory constraints. Infeasible solutions incur heavy penalties."
     },
     "solution_representation": "A list of integers representing the start times of the tasks.",
-    "compatible_optimizers": [
-      "genetic_algorithm",
-      "simulated_annealing",
-      "particle_swarm",
-      "tabu_search",
-      "rl_optimizer"
+    "formulations": [
+      ""
     ]
   }
   
